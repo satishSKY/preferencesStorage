@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+id="sky.phonegap.preferencesStorage.preferencesStorage" version="0.1">
+<engines>
+<engine name="cordova" version=">=3.6.0" />
+</engines>
+<name>PreferencesStorage Plugin</name>
+<description>Store the data in key value pair</description>
+<author>Satish Kumar</author>
+<license>Apache 2.0</license>
+<keywords>cordova,preferencesStorage</keywords>
+<js-module src="www/preferencesStorage.js" name="PreferencesStorage">
+<clobbers target="preferencesStorage" />
+</js-module>
+<!-- android -->
+<platform name="android">
+<config-file target="res/xml/config.xml" parent="/*">
+<feature name="PreferencesStorage">
+        <param name="android-package" value="sky.phonegap.preferencesStorage.PreferencesStorage"/>
+     </feature>
+</config-file>
+<config-file target="AndroidManifest.xml" parent="/manifest">
+
+</config-file>
+<source-file src="src/android/PreferencesStorage.java" target-dir="src/sky/phonegap/preferencesStorage" />
+</platform>
+<!-- android -->
+</plugin>
