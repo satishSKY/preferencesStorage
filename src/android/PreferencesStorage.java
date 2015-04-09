@@ -12,8 +12,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class PreferencesStorage extends CordovaPlugin{
-	Editor editor = null;
-	protected SharedPreferences sharedPrefs = null;
+	public static  Editor editor = null;
+	public	static  SharedPreferences sharedPrefs = null;
+
 
 	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 		super.initialize(cordova, webView);	
@@ -21,8 +22,10 @@ public class PreferencesStorage extends CordovaPlugin{
 
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext)  throws JSONException{
 
-		sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
-		editor = sharedPrefs.edit();
+		if(sharedPrefs == null){
+			sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
+			editor = sharedPrefs.edit();
+		}
 
 		if(action.equals("getAll")){
 			this.getAll(callbackContext);
