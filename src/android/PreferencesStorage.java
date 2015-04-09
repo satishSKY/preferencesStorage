@@ -81,7 +81,7 @@ public class PreferencesStorage extends CordovaPlugin{
 			e.printStackTrace();
 		}
 		if(key.length() > 0 && sharedPrefs.getString(key,null) != null){
-			Log.i("sharedPrefs get key : "+key, " : "+sharedPrefs.getString(key,"invalid key"));
+		//	Log.i("sharedPrefs get key : "+key, " : "+sharedPrefs.getString(key,"invalid key"));
 			callbackContext.success(sharedPrefs.getString(key,null));
 		}else {
 			callbackContext.error("Error");
@@ -104,7 +104,7 @@ public class PreferencesStorage extends CordovaPlugin{
 		if(key.length() > 0 ){
 			editor.putString(key, value);
 			editor.commit();
-			Log.i("success store key : ", key +"------"+ value);
+		//	Log.i("success store key : ", key +"------"+ value);
 			callbackContext.success("success");
 		}else{
 			callbackContext.error("Error");
@@ -112,7 +112,7 @@ public class PreferencesStorage extends CordovaPlugin{
 	}
 	private void getAll(CallbackContext callbackContext) {
 		try {
-			Log.i("success  getAll : ", ""+sharedPrefs.getAll());
+		//	Log.i("success  getAll : ", ""+sharedPrefs.getAll());
 			callbackContext.success(""+sharedPrefs.getAll());
 
 		} catch (Exception e) {
